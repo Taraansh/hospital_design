@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Home from './Home'
 
 export default function Signup() {
 
@@ -38,7 +37,7 @@ export default function Signup() {
       .then((response) => response.json())
       .then((data) => {
         console.log('Success:', data)
-        navigate("/Home")
+        navigate("/")
       })
       .catch((error) => {
         console.error('Error:', error)
