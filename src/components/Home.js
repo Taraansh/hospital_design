@@ -1,9 +1,12 @@
 import React from 'react'
+import NavBar from './NavBar'
 
 export default function Home() {
   return (
-    <div>
-      Logged in
-    </div>
+    <><NavBar />
+      <div>
+        Logged in
+      </div>
+    </>
   )
 }
