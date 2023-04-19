@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Home from './Home';
 import {Link} from 'react-router-dom'
 
-export default function Login() {
+export default function Login(props) {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -18,6 +18,12 @@ const handleSubmit = async (event) => {
 
       if (data.status === "success") {
         setIsDataValid(true);
+
+        const patient_email = data.email
+        const patient_password = data.password
+        console.log(patient_email)
+        console.log(patient_password)
+        props.onLogin(patient_email, patient_password);
       } 
       else {
         setIsDataValid(false);
@@ -35,6 +41,7 @@ if (isDataValid) {
 }
 
   return (
+  <>   
     <div className='container'>
         <div className="card mx-auto position-absolute top-50 start-50 translate-middle" style={{width: '18rem', padding: '35px 20px'}}>
             <h5 className="card-title">Login</h5>
@@ -54,5 +61,6 @@ if (isDataValid) {
             <div id="newEmailSetUp" className="form-text mx-3">Need an accout? <Link to="/Signup">Sign up</Link> </div>
         </div>
     </div>
+  </>
   )
 }
