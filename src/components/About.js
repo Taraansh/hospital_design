@@ -18,12 +18,8 @@ export default function About(props) {
   // State to update the details in the profile
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
-  const [dob, setDOB] = useState('')
-  const [gender, setGender] = useState('')
   const [contact, setContact] = useState('')
-  const [email, setEmail] = useState('')
   const [address, setAddress] = useState('')
-  const [password, setPassword] = useState('')
   const navigate = useNavigate()
 
   const handleDetails = async () => {
@@ -60,14 +56,13 @@ export default function About(props) {
     event.preventDefault();
 
     const data = {
-      patient_first_name: firstName,
-      patient_last_name: lastName,
-      patient_dob: dob,
-      patient_gender: gender,
-      patient_contact: contact,
-      patient_email: email,
-      patient_address: address,
-      patient_password: password,
+      patient_first_name: firstName ? firstName : patientFirstName,
+      patient_last_name: lastName ? lastName : patientLastName,
+      patient_dob: patientDateOfBirth,
+      patient_gender: patientGender,
+      patient_contact: contact ? contact : patientContact,
+      patient_email: patientEmail,
+      patient_address: address ? address : patientAddress,
     }
 
     fetch(`http://127.0.0.1:8000/patient/modify/${props.email}/${props.password}/`, {
@@ -80,13 +75,30 @@ export default function About(props) {
       .then((response) => response.json())
       .then((data) => {
         console.log('Success:', data)
-        navigate("/ABout")
+        navigate("/")
       })
       .catch((error) => {
         console.error('Error:', error)
       })
   }
   
+  const handleDelete = () => {
+    const confirmDelete = window.confirm("Are you sure you want to delete this record?");
+    if (confirmDelete) {
+      fetch(`http://127.0.0.1:8000/patient/modify/${props.email}/${props.password}/`, {
+        method: 'DELETE',
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log('Success:', data)
+          navigate("/")
+        })
+        .catch((error) => {
+          console.error('Error:', error)
+        })
+    }
+  }
+
   return (
     <>
       <NavBar />
@@ -112,9 +124,8 @@ export default function About(props) {
               <p>{patientEmail}</p>
               <h5>Address</h5>
               <p>{patientAddress}</p>
-              <button className="btn btn-dark" onClick={handleUpdate}>
-          Update Profile
-        </button> 
+              <button className="btn btn-dark mx-2" onClick={handleUpdate}>Update Profile</button>
+              <button className="btn btn-dark float-end" onClick={handleDelete}>Delete Profile</button>
             </div>
           </div>
         ) : (
@@ -132,8 +143,8 @@ export default function About(props) {
                     id="patient_first_name"
                     name="patient_first_name"
                     aria-describedby="FirstNameHelp"
-                    value={patientFirstName}
-                    onChange={(e) => setFirstName(e.target.value)}
+                    defaultValue={patientFirstName}
+                    onChange={(e) => {setFirstName(e.target.value)}}
                   />
                 </div>
               </div>
@@ -149,8 +160,9 @@ export default function About(props) {
                     id="patient_last_name"
                     name="patient_last_name"
                     aria-describedby="LastNameHelp"
-                    value={patientLastName}
-                    onChange={(e) => setLastName(e.target.value)}
+                    defaultValue={patientLastName}
+                    onChange={(e) => {setLastName(e.target.value)}}
+
                   />
                 </div>
               </div>
@@ -167,7 +179,8 @@ export default function About(props) {
                     name="patient_dob"
                     aria-describedby="DOBHelp"
                     value={patientDateOfBirth}
-                    onChange={(e) => setDOB(e.target.value)}
+                    readOnly
+                    disabled
                   />
                 </div>
               </div>
@@ -177,19 +190,14 @@ export default function About(props) {
                   <label htmlFor="Gender" className="form-label">
                     Gender
                   </label>
-                  <select
+                  <input
                     className="form-select"
                     aria-label="Default select example"
                     name="patient_gender"
-                    defaultValue="Choose a Gender"
                     value={patientGender}
-                    onChange={(e) => setGender(e.target.value)}
+                    disabled
                   >
-                    <option value="Choose a Gender">Choose a Gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
-                  </select>
+                  </input>
                 </div>
               </div>
 
@@ -204,8 +212,9 @@ export default function About(props) {
                     id="ContactNumber"
                     name="patient_contact"
                     aria-describedby="ContactHelp"
-                    value={patientContact}
-                    onChange={(e) => setContact(e.target.value)}
+                    defaultValue={patientContact}
+                    onChange={(e) => {setContact(e.target.value)}}
+
                   />
                 </div>
               </div>
@@ -223,7 +232,7 @@ export default function About(props) {
                     name="patient_email"
                     autoComplete="email"
                     value={patientEmail}
-                    onChange={(e) => setEmail(e.target.value)}
+                    readOnly disabled
                   />
                 </div>
               </div>
@@ -239,8 +248,9 @@ export default function About(props) {
                     id="Address"
                     aria-describedby="addressHelp"
                     name="patient_address"
-                    value={patientAddress}
-                    onChange={(e) => setAddress(e.target.value)}
+                    defaultValue={patientAddress}
+                    onChange={(e) => {setAddress(e.target.value)}}
+
                   />
                 </div>
               </div>
@@ -257,7 +267,6 @@ export default function About(props) {
                     name="patient_password"
                     autoComplete="current-password"
                     required
-                    onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
               </div>
@@ -268,6 +277,8 @@ export default function About(props) {
               >
                 Submit
               </button>
+
+              <button className="btn btn-dark" onClick={handleUpdate}>Cancel</button>
             </form>
           </div>
         )}
