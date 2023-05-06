@@ -16,7 +16,6 @@ export default function PlaceOrder(props) {
     const data = await fetch(url);
     const parsedData = await data.json();
 
-    console.log(parsedData);
     setMedicinelist(parsedData);
   };
 
@@ -40,7 +39,7 @@ export default function PlaceOrder(props) {
       total_price: price,
     };
 
-    fetch(`http://127.0.0.1:8000/orders/order/${props.email}/`, {
+    fetch(`http://127.0.0.1:8000/orders/order/${localStorage.getItem('patient_email')}/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -49,7 +48,6 @@ export default function PlaceOrder(props) {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("Success:", data);
         navigate("/Orders");
       })
       .catch((error) => {
@@ -89,12 +87,10 @@ export default function PlaceOrder(props) {
                   <option value="ChooseMedicine">Choose Medicine</option>
                   {medicinelist.map((element, index) => {
                     return (
-                      <>
                         <option key={index} value={element.medicine_name}>
                           {element.medicine_name} - {element.description} - $
                           {element.price}
                         </option>
-                      </>
                     );
                   })}
                 </select>
