@@ -12,7 +12,7 @@ export default function Appointment(props) {
     )}/`;
     const data = await fetch(url);
     const parsedData = await data.json();
-
+    parsedData.sort((a, b) => new Date(b.date) - new Date(a.date));
     setAppointments(parsedData);
   };
 
@@ -44,7 +44,6 @@ export default function Appointment(props) {
                   <p className="mb-0 py-2">Doctor Name - {element.doctor}</p>
                   <p className="mb-0 py-2">Date Booked - {element.date}</p>
                   <p className="mb-0 py-2">Time - {element.timing}</p>
-                  <p className="mb-0 py-2">Status - {element.status}</p>
                   <p className="float-end mb-1">
                     Total - ${element.total_price}
                   </p>
