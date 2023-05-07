@@ -12,7 +12,6 @@ export default function BookAppointment(props) {
   const navigate = useNavigate();
 
   const price = 5;
-  const status = "Requested";
 
   const fetchDoctorsList = async () => {
     const url = `http://127.0.0.1:8000/otherusers/doctors/`;
@@ -66,7 +65,6 @@ export default function BookAppointment(props) {
     const data = {
       doctor: doctorName,
       timing: timing,
-      status: status,
       reason: reason,
       total_price: price,
     };
