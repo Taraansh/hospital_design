@@ -36,7 +36,7 @@ export default function Orders(props) {
               try {
                 // Delete the specific order by making an API call
                 const response = await fetch(
-                  `http://127.0.0.1:8000/orders/order/${orderId}/`,
+                  `http://127.0.0.1:8000/orders/order/${orderId}/delete/`,
                   {
                     method: "DELETE",
                   }
