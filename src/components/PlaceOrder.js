@@ -39,13 +39,18 @@ export default function PlaceOrder(props) {
       total_price: price,
     };
 
-    fetch(`http://127.0.0.1:8000/orders/order/${localStorage.getItem('patient_email')}/`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
+    fetch(
+      `http://127.0.0.1:8000/orders/order/${localStorage.getItem(
+        "patient_email"
+      )}/`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    )
       .then((response) => response.json())
       .then((data) => {
         navigate("/Orders");
@@ -86,12 +91,16 @@ export default function PlaceOrder(props) {
                 >
                   <option value="ChooseMedicine">Choose Medicine</option>
                   {medicinelist.map((element, index) => {
-                    return (
+                    if (element.available) {
+                      return (
                         <option key={index} value={element.medicine_name}>
                           {element.medicine_name} - {element.description} - $
                           {element.price}
                         </option>
-                    );
+                      );
+                    } else {
+                      return null;
+                    }
                   })}
                 </select>
               </div>
