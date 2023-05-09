@@ -69,12 +69,22 @@ export default function LabTests() {
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
                   <Link className="nav-link" to="/LabTests">
-                    All Tests
+                    All Booked Tests
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/OtherUserProfile">
                     Profile
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/TestList">
+                    Tests Available
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/AddTest">
+                    Add Test
                   </Link>
                 </li>
               </ul>
