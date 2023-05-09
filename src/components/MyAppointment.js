@@ -12,7 +12,6 @@ export default function MyAppointment() {
     const data = await fetch(url);
     const parsedData = await data.json();
     parsedData.sort((a, b) => new Date(b.date) - new Date(a.date));
-    console.log(parsedData)
     setAppointments(parsedData);
   };
 
