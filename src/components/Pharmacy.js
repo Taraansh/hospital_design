@@ -83,6 +83,16 @@ export default function Pharmacy() {
                     Profile
                   </Link>
                 </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/MedicineList">
+                    Medicines
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/AddMedicine">
+                    Add Medicine
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
@@ -121,13 +131,19 @@ export default function Pharmacy() {
                     <p className="mb-0 py-2">
                       Address - {element.delivery_address}
                     </p>
-                    <p className="mb-0 py-2">Contact - {element.contact}</p>
                     <p className="float-end mb-0 py-2">
                       Total - ${element.total_price}
                     </p>
+                    <p className="mb-0 py-2">Contact - {element.contact}</p>
                     <div>
                       <div className="mb-0 py-2">
-                        <div className="mb-3">
+                        <button
+                          className="btn btn-dark float-end mt-3"
+                          onClick={() => handleStatusChange(element.order_id)}
+                        >
+                          Update Status
+                        </button>
+                        <div className="">
                           Change Status -
                           <select
                             className="form-select"
@@ -144,12 +160,6 @@ export default function Pharmacy() {
                             <option value="DELIVERED">DELIVERED</option>
                             <option value="CANCELLED">CANCELLED</option>
                           </select>
-                          <button
-                            className="btn btn-dark float-end my-2"
-                            onClick={() => handleStatusChange(element.order_id)}
-                          >
-                            Upload Status
-                          </button>
                         </div>
                       </div>
                     </div>
