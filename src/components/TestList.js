@@ -97,11 +97,11 @@ export default function TestList() {
                   handleTestList(); // Refresh the order list after deletion
                 } else {
                   // Handle the case when the delete request fails
-                  console.log("Failed to delete Medicine:", testId);
+                  console.log("Failed to delete Test:", testId);
                 }
               } catch (error) {
                 // Handle any errors that occur during the delete operation
-                console.error("Error deleting Medicine:", error);
+                console.error("Error deleting Test:", error);
               }
             }
           };
