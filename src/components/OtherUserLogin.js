@@ -21,7 +21,7 @@ export default function OtherUserLogin() {
         localStorage.setItem("user_password", user_password);
         if (data.specification === "Pharmacist") {
           navigate("/Pharmacy");
-        } else if (data.specification === "Lab Attendent") {
+        } else if (data.specification === "Test Lab Attendant") {
           navigate("/LabTests");
         }
       } else {
