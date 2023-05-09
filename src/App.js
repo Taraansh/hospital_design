@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Login from "./components/Login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./components/Login";
 import Signup from "./components/Signup";
 import About from "./components/About";
 import Appointment from "./components/Appointment";
@@ -16,6 +16,10 @@ import DoctorProfile from "./components/DoctorProfile";
 import Pharmacy from "./components/Pharmacy";
 import LabTests from "./components/LabTests";
 import OtherUserProfile from "./components/OtherUserProfile";
+import AddMedicine from "./components/AddMedicine";
+import MedicineList from "./components/MedicineList";
+import AddTest from "./components/AddTest";
+import TestList from "./components/TestList";
 
 function App() {
   const [email, setEmail] = useState("");
@@ -46,9 +50,15 @@ function App() {
         <Route path="/MyAppointment" element={<MyAppointment />} />
 
         <Route path="/OtherUserLogin" element={<OtherUserLogin />} />
-        <Route path="/Pharmacy" element={<Pharmacy />} />
-        <Route path="/LabTests" element={<LabTests />} />
         <Route path="/OtherUserProfile" element={<OtherUserProfile />} />
+
+        <Route path="/Pharmacy" element={<Pharmacy />} />
+        <Route path="/AddMedicine" element={<AddMedicine />} />
+        <Route path="/MedicineList" element={<MedicineList />} />
+
+        <Route path="/LabTests" element={<LabTests />} />
+        <Route path="/AddTest" element={<AddTest />} />
+        <Route path="/TestList" element={<TestList />} />
       </Routes>
     </BrowserRouter>
   );
