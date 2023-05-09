@@ -42,7 +42,7 @@ export default function OtherUserProfile() {
         <div>
           <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container-fluid">
-              <Link className="navbar-brand" to="/MyAppointment">
+              <Link className="navbar-brand" to="/Pharmacy">
                 Hospital
               </Link>
               <button
@@ -69,6 +69,16 @@ export default function OtherUserProfile() {
                   <li className="nav-item">
                     <Link className="nav-link" to="/OtherUserProfile">
                       Profile
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/MedicineList">
+                      Medicines
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/AddMedicine">
+                      Add Medicine
                     </Link>
                   </li>
                 </ul>
@@ -109,12 +119,22 @@ export default function OtherUserProfile() {
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                   <li className="nav-item">
                     <Link className="nav-link" to="/LabTests">
-                      All Tests
+                      All Booked Tests
                     </Link>
                   </li>
                   <li className="nav-item">
                     <Link className="nav-link" to="/OtherUserProfile">
                       Profile
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/TestList">
+                      Tests Available
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/AddTest">
+                      Add Test
                     </Link>
                   </li>
                 </ul>
