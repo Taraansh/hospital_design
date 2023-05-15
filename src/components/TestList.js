@@ -7,7 +7,7 @@ export default function TestList() {
   const navigate = useNavigate();
 
   const handleTestList = async () => {
-    const url = `http://127.0.0.1:8000/testlab/tests/`;
+    const url = `https://hospital-management-p6cm.onrender.com/testlab/tests/`;
 
     const response = await fetch(url);
     const data = await response.json();
@@ -87,7 +87,7 @@ export default function TestList() {
               try {
                 // Delete the specific order by making an API call
                 const response = await fetch(
-                  `http://127.0.0.1:8000/pharmacy/detail/${testId}/`,
+                  `https://hospital-management-p6cm.onrender.com/pharmacy/detail/${testId}/`,
                   {
                     method: "DELETE",
                   }
@@ -110,7 +110,7 @@ export default function TestList() {
             const data = {
               price: price,
             };
-            fetch(`http://127.0.0.1:8000/pharmacy/detail/${testId}/`, {
+            fetch(`https://hospital-management-p6cm.onrender.com/pharmacy/detail/${testId}/`, {
               method: "PUT",
               headers: {
                 "Content-Type": "application/json",

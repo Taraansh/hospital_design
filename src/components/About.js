@@ -32,8 +32,8 @@ export default function About() {
   const navigate = useNavigate();
 
   const handleDetails = async () => {
-    // const url = `http://127.0.0.1:8000/patient/profile/${props.email}/${props.password}/`;
-    const url = `http://127.0.0.1:8000/patient/profile/${localStorage.getItem(
+    // const url = `https://hospital-management-p6cm.onrender.com/patient/profile/${props.email}/${props.password}/`;
+    const url = `https://hospital-management-p6cm.onrender.com/patient/profile/${localStorage.getItem(
       "patient_email"
     )}/${localStorage.getItem("patient_password")}/`;
 
@@ -77,7 +77,7 @@ export default function About() {
     };
 
     fetch(
-      `http://127.0.0.1:8000/patient/modify/${localStorage.getItem(
+      `https://hospital-management-p6cm.onrender.com/patient/modify/${localStorage.getItem(
         "patient_email"
       )}/${localStorage.getItem("patient_password")}/`,
       {
@@ -103,7 +103,7 @@ export default function About() {
     );
     if (confirmDelete) {
       fetch(
-        `http://127.0.0.1:8000/patient/modify/${localStorage.getItem(
+        `https://hospital-management-p6cm.onrender.com/patient/modify/${localStorage.getItem(
           "patient_email"
         )}/${localStorage.getItem("patient_password")}/`,
         {

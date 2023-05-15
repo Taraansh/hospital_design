@@ -7,7 +7,7 @@ export default function Appointment(props) {
   const navigate = useNavigate();
 
   const fetchAppointmentDetails = async () => {
-    const url = `http://127.0.0.1:8000/appointment/myappointment/${localStorage.getItem(
+    const url = `https://hospital-management-p6cm.onrender.com/appointment/myappointment/${localStorage.getItem(
       "patient_email"
     )}/`;
     const data = await fetch(url);

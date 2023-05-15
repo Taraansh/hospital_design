@@ -27,7 +27,7 @@ export default function Signup() {
       patient_password: password,
     }
 
-    fetch('http://127.0.0.1:8000/patient/signup/', {
+    fetch('https://hospital-management-p6cm.onrender.com/patient/signup/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

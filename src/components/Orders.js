@@ -7,7 +7,7 @@ export default function Orders(props) {
   const navigate = useNavigate();
 
   const fetchOrderDetails = async () => {
-    const url = `http://127.0.0.1:8000/orders/myorder/${localStorage.getItem('patient_email')}/`;
+    const url = `https://hospital-management-p6cm.onrender.com/orders/myorder/${localStorage.getItem('patient_email')}/`;
     const data = await fetch(url);
     const parsedData = await data.json();
 
@@ -36,7 +36,7 @@ export default function Orders(props) {
               try {
                 // Delete the specific order by making an API call
                 const response = await fetch(
-                  `http://127.0.0.1:8000/orders/order/${orderId}/delete/`,
+                  `https://hospital-management-p6cm.onrender.com/orders/order/${orderId}/delete/`,
                   {
                     method: "DELETE",
                   }

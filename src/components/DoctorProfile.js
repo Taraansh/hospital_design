@@ -30,7 +30,7 @@ export default function DoctorProfile() {
     useState("");
 
   const handleDetails = async () => {
-    const url = `http://127.0.0.1:8000/otherusers/profile/${localStorage.getItem(
+    const url = `https://hospital-management-p6cm.onrender.com/otherusers/profile/${localStorage.getItem(
       "doctor_email"
     )}/${localStorage.getItem("doctor_password")}/`;
 
@@ -70,7 +70,7 @@ export default function DoctorProfile() {
     };
 
     fetch(
-      `http://127.0.0.1:8000/otherusers/modify/${localStorage.getItem(
+      `https://hospital-management-p6cm.onrender.com/otherusers/modify/${localStorage.getItem(
         "doctor_email"
       )}/${localStorage.getItem("doctor_password")}/`,
       {

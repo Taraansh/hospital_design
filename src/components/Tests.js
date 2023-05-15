@@ -7,7 +7,7 @@ export default function Tests(props) {
   const navigate = useNavigate();
 
   const fetchTestDetails = async () => {
-    const url = `http://127.0.0.1:8000/testlab/mytests/${localStorage.getItem('patient_email')}/`;
+    const url = `https://hospital-management-p6cm.onrender.com/testlab/mytests/${localStorage.getItem('patient_email')}/`;
     const data = await fetch(url);
     const parsedData = await data.json();
 

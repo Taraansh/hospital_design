@@ -16,7 +16,7 @@ export default function AddTest() {
       price: price,
     };
 
-    fetch("http://127.0.0.1:8000/testlab/tests/", {
+    fetch("https://hospital-management-p6cm.onrender.com/testlab/tests/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -7,7 +7,7 @@ export default function Pharmacy() {
 
   const navigate = useNavigate();
   const fetchOrderDetails = async () => {
-    const url = `http://127.0.0.1:8000/orders/allorders/`;
+    const url = `https://hospital-management-p6cm.onrender.com/orders/allorders/`;
     const data = await fetch(url);
     const parsedData = await data.json();
     parsedData.sort(
@@ -27,10 +27,10 @@ export default function Pharmacy() {
     };
 
     fetch(
-      //   `http://127.0.0.1:8000/otherusers/modify/${localStorage.getItem(
+      //   `https://hospital-management-p6cm.onrender.com/otherusers/modify/${localStorage.getItem(
       //     "doctor_email"
       //   )}/${localStorage.getItem("doctor_password")}/`
-      `http://127.0.0.1:8000/orders/order/${order_id}/status/`,
+      `https://hospital-management-p6cm.onrender.com/orders/order/${order_id}/status/`,
       {
         method: "PUT",
         headers: {

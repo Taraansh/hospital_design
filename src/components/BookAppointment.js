@@ -14,7 +14,7 @@ export default function BookAppointment(props) {
   const price = 5;
 
   const fetchDoctorsList = async () => {
-    const url = `http://127.0.0.1:8000/otherusers/doctors/`;
+    const url = `https://hospital-management-p6cm.onrender.com/otherusers/doctors/`;
     const data = await fetch(url);
     const parsedData = await data.json();
 
@@ -70,7 +70,7 @@ export default function BookAppointment(props) {
     };
 
     fetch(
-      `http://127.0.0.1:8000/appointment/book/${localStorage.getItem(
+      `https://hospital-management-p6cm.onrender.com/appointment/book/${localStorage.getItem(
         "patient_email"
       )}/`,
       {

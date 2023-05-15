@@ -19,7 +19,7 @@ export default function OtherUserProfile() {
   const navigate = useNavigate();
 
   const handleDetails = async () => {
-    const url = `http://127.0.0.1:8000/otherusers/otherprofile/${localStorage.getItem(
+    const url = `https://hospital-management-p6cm.onrender.com/otherusers/otherprofile/${localStorage.getItem(
       "user_email"
     )}/${localStorage.getItem("user_password")}/`;
 

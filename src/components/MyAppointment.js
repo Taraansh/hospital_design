@@ -6,7 +6,7 @@ export default function MyAppointment() {
   const navigate = useNavigate();
 
   const fetchAppointmentDetails = async () => {
-    const url = `http://127.0.0.1:8000/appointment/upcoming/${localStorage.getItem(
+    const url = `https://hospital-management-p6cm.onrender.com/appointment/upcoming/${localStorage.getItem(
         "doctorName"
       )}/`;
     const data = await fetch(url);

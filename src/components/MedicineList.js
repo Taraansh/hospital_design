@@ -8,7 +8,7 @@ export default function MedicineList() {
   const navigate = useNavigate();
 
   const handleMedicineList = async () => {
-    const url = `http://127.0.0.1:8000/pharmacy/list/`;
+    const url = `https://hospital-management-p6cm.onrender.com/pharmacy/list/`;
 
     const response = await fetch(url);
     const data = await response.json();
@@ -88,7 +88,7 @@ export default function MedicineList() {
               try {
                 // Delete the specific order by making an API call
                 const response = await fetch(
-                  `http://127.0.0.1:8000/pharmacy/detail/${medicineId}/`,
+                  `https://hospital-management-p6cm.onrender.com/pharmacy/detail/${medicineId}/`,
                   {
                     method: "DELETE",
                   }
@@ -112,7 +112,7 @@ export default function MedicineList() {
               quantity: quantity,
               price: price,
             };
-            fetch(`http://127.0.0.1:8000/pharmacy/detail/${medicineId}/`, {
+            fetch(`https://hospital-management-p6cm.onrender.com/pharmacy/detail/${medicineId}/`, {
               method: "PUT",
               headers: {
                 "Content-Type": "application/json",

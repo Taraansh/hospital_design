@@ -12,7 +12,7 @@ export default function PlaceOrder(props) {
   const navigate = useNavigate();
 
   const fetchMedicineList = async () => {
-    const url = `http://127.0.0.1:8000/pharmacy/list/`;
+    const url = `https://hospital-management-p6cm.onrender.com/pharmacy/list/`;
     const data = await fetch(url);
     const parsedData = await data.json();
 
@@ -40,7 +40,7 @@ export default function PlaceOrder(props) {
     };
 
     fetch(
-      `http://127.0.0.1:8000/orders/order/${localStorage.getItem(
+      `https://hospital-management-p6cm.onrender.com/orders/order/${localStorage.getItem(
         "patient_email"
       )}/`,
       {

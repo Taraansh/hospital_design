@@ -8,7 +8,7 @@ export default function DoctorLogin() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const url = `http://127.0.0.1:8000/otherusers/loginreq/${email}/${password}/`;
+    const url = `https://hospital-management-p6cm.onrender.com/otherusers/loginreq/${email}/${password}/`;
     try {
       const response = await fetch(url);
       const data = await response.json();

@@ -7,7 +7,7 @@ export default function LabTests() {
 
   const navigate = useNavigate();
   const fetchTestDetails = async () => {
-    const url = `http://127.0.0.1:8000/testlab/bookedtests/`;
+    const url = `https://hospital-management-p6cm.onrender.com/testlab/bookedtests/`;
     const data = await fetch(url);
     const parsedData = await data.json();
     parsedData.sort(
@@ -26,7 +26,7 @@ export default function LabTests() {
       test_result_url: testResult,
     };
 
-    fetch(`http://127.0.0.1:8000/testlab/uploadtestresults/${test_id}/`, {
+    fetch(`https://hospital-management-p6cm.onrender.com/testlab/uploadtestresults/${test_id}/`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

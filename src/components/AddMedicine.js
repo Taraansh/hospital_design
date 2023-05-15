@@ -18,7 +18,7 @@ export default function AddMedicine() {
       price: price,
     };
 
-    fetch("http://127.0.0.1:8000/pharmacy/list/", {
+    fetch("https://hospital-management-p6cm.onrender.com/pharmacy/list/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

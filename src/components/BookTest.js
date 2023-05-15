@@ -11,7 +11,7 @@ export default function BookTest() {
   const navigate = useNavigate();
 
   const fetchTestList = async () => {
-    const url = `http://127.0.0.1:8000/testlab/tests/`;
+    const url = `https://hospital-management-p6cm.onrender.com/testlab/tests/`;
     const data = await fetch(url);
     const parsedData = await data.json();
 
@@ -38,7 +38,7 @@ export default function BookTest() {
     };
 
     fetch(
-      `http://127.0.0.1:8000/testlab/test/${localStorage.getItem(
+      `https://hospital-management-p6cm.onrender.com/testlab/test/${localStorage.getItem(
         "patient_email"
       )}/`,
       {
