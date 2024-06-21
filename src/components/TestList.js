@@ -24,7 +24,7 @@ export default function TestList() {
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
           <div className="container-fluid">
             <Link className="navbar-brand" to="/LabTests">
-              Hospital
+              MediQuad
             </Link>
             <button
               className="navbar-toggler"
@@ -110,13 +110,16 @@ export default function TestList() {
             const data = {
               price: price,
             };
-            fetch(`https://hospital-management-p6cm.onrender.com/pharmacy/detail/${testId}/`, {
-              method: "PUT",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(data),
-            })
+            fetch(
+              `https://hospital-management-p6cm.onrender.com/pharmacy/detail/${testId}/`,
+              {
+                method: "PUT",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+              }
+            )
               .then((response) => response.json())
               .then((data) => {
                 navigate("/TestList");

@@ -7,8 +7,8 @@ export default function MyAppointment() {
 
   const fetchAppointmentDetails = async () => {
     const url = `https://hospital-management-p6cm.onrender.com/appointment/upcoming/${localStorage.getItem(
-        "doctorName"
-      )}/`;
+      "doctorName"
+    )}/`;
     const data = await fetch(url);
     const parsedData = await data.json();
     parsedData.sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -26,7 +26,7 @@ export default function MyAppointment() {
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
           <div className="container-fluid">
             <Link className="navbar-brand" to="/MyAppointment">
-              Hospital
+              MediQuad
             </Link>
             <button
               className="navbar-toggler"
@@ -77,11 +77,15 @@ export default function MyAppointment() {
                   style={{ textDecoration: "none", color: "currentcolor" }}
                   aria-current="true"
                 >
-                  <p className="mb-0 py-2">Patient Name - {element.patient_name}</p>
+                  <p className="mb-0 py-2">
+                    Patient Name - {element.patient_name}
+                  </p>
                   <p className="mb-0 py-2">Doctor Name - {element.doctor}</p>
                   <p className="mb-0 py-2">Date Booked - {element.date}</p>
                   <p className="mb-0 py-2">Time - {element.timing}</p>
-                  <p className="float-end mb-1">Total - ${element.total_price}</p>
+                  <p className="float-end mb-1">
+                    Total - ${element.total_price}
+                  </p>
                   <p className="mb-0 py-2">Reason - {element.reason}</p>
                 </div>
               </div>

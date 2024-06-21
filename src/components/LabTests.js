@@ -26,13 +26,16 @@ export default function LabTests() {
       test_result_url: testResult,
     };
 
-    fetch(`https://hospital-management-p6cm.onrender.com/testlab/uploadtestresults/${test_id}/`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
+    fetch(
+      `https://hospital-management-p6cm.onrender.com/testlab/uploadtestresults/${test_id}/`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    )
       .then((response) => response.json())
       .then((data) => {
         navigate("/LabTests");
@@ -49,7 +52,7 @@ export default function LabTests() {
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
           <div className="container-fluid">
             <Link className="navbar-brand" to="/LabTests">
-              Hospital
+              MediQuad
             </Link>
             <button
               className="navbar-toggler"
